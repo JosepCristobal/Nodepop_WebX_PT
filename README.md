@@ -10,3 +10,13 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - npm i nodemon
 - Instalamos cross-env para compatibilidad con variables de entorno en diferentes S.O.
 - npm i cross-env
+- Añadimos "dev": "cross-env PORT=3000 NODE_ENV=development DEBUG=nodepop:* nodemon" en Scripts de package.json.
+- Para arrancar el servidor, lo haremos con el comando npm run dev.
+- Para más comodidad, hemos instalado nodemon que nos permite tener el servidor arrancado permanentemente, reiniciándose cada vez que modificamos algo en nuestra aplicación y guardamos.
+- Arrancando con nodemon : nodemon run dev.
+- Instalamos ESLint para mejorar nuestra calidad de código. Esta herramienta no ayudará a esta labor../node_module
+- Inicializamos eslint con el comando $./node_modules/.bin/eslint --init
+- Información extraida de "https://lenguajejs.com/javascript/caracteristicas/eslint/"
+- Instalamos la guia de estilo standard con  npm i standard
+- Iniciamos eslint para nuestro proyecto.
+- Si queremos verificar un fichero solamente, podemos ejecutar npx eslint ./routes/index.js
