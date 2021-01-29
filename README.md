@@ -20,3 +20,6 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Instalamos la guia de estilo standard con  npm i standard
 - Iniciamos eslint para nuestro proyecto.
 - Si queremos verificar un fichero solamente, podemos ejecutar npx eslint ./routes/index.js
+- Vamos a estructurar un poco nuestro proyecto creando diferentes directorios.
+- Dentro de routes, creamos un directorio con el el nombre de apiv1 para definir nuestros paths. lib para librerías. models para nuestros modelos
+
