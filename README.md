@@ -25,4 +25,6 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Instalamos accesos a MongoDB npm install mongodb.
 - Instalamos Mongoose npm install mongoose. Esta librería nos ayudará a operar con la BBDD MongoDB.
 - Configuramos nuestro app.js Para errores, rutas, cargas iniciales, etc.
+- Tratamos la devolución de errores en el app.js. Si el error se ha producido en una petición al API, el retorno será en formato Json.
+- Instalamos express-validator para ayudarnos a la validación de datos que hayamos recibido en nuestras peticiones al API. npm install express-validator.
 
