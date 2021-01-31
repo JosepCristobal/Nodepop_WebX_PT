@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 /**
  * Rutas del API
  */
-app.use('/api/agentes', require('./routes/apiv1/anuncios'));
+app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
 /**
  * Rutas de mi Website

@@ -27,4 +27,8 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Configuramos nuestro app.js Para errores, rutas, cargas iniciales, etc.
 - Tratamos la devolución de errores en el app.js. Si el error se ha producido en una petición al API, el retorno será en formato Json.
 - Instalamos express-validator para ayudarnos a la validación de datos que hayamos recibido en nuestras peticiones al API. npm install express-validator.
+- Creamos un fichero header.html para incluirlo en nuestro index.html
+- Para arrancar la BBDD de MongoDB de forma manual, nos situamos en el directorio donde se encuentra nuestro motor de BBDD y ejecutamos el siguiente comando: ./bin/mongod --dbpath ./data/db
+
+
 
