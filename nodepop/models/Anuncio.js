@@ -25,6 +25,24 @@ anuncioSchema.statics.allowedTagsEnumValidate = function(arrTag){
   return validateTags(arrTag)
 };
 
+anuncioSchema.statics.lista = function(filtro,limit,skip,fields,sort){
+  const query = Anuncio.find(filtro);
+  query.limit(limit);
+  query.skip(skip);
+  query.select(fields)
+  query.sort(sort)
+  return query.exec();
+}
+
+anuncioSchema.statics.newAnuncio = function(anuncioNew){
+  const anuncio = new Anuncio(anuncioNew)
+  const createAnuncio =  anuncio.save()
+  return createAnuncio;
+}
+
+
+
+
 
 // Validamos los tags asignados a nuevos anuncios
 let validateTags = (arrTag) => {

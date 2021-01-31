@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict'
 
 var express = require('express');
@@ -36,6 +37,15 @@ try {
     return res.status(404).json({error: 'Error en Tags'})
 }
 
+});
+
+router.post('/', async (req, res, next) =>{
+    try {
+        const anuncioCreado = await Anuncio.newAnuncio(req.body)
+        res.status(201).json({result: anuncioCreado});
+    } catch (error) {
+        next(error)      
+    }
 });
 
 
