@@ -30,7 +30,6 @@ anuncioSchema.statics.allowedTagsEnumValidate = function(arrTag){
 
 // Definimos un método estático para consultar los anuncios según los criterios de búsqueda
 anuncioSchema.statics.lista = function(data){
-  console.log("este es el nombre",data.nombre)
   const nombre = data.nombre;
   const venta = data.venta;
   const precio = data.precio;
@@ -51,10 +50,28 @@ anuncioSchema.statics.lista = function(data){
     filtro.tags = {$in: tags};
   }
 
+  //Filtramos si es venta = true o compra = false
   if (venta){
     filtro.venta = venta
   }
-  console.log(filtro.nombre)
+
+  //Vamos a tratar el filtro del precio para buscar el intervalo que nos marque el usuario que consulta
+  if (precio){   
+      if (precio.indexOf('-') !== -1) {
+        filtro.precio = {};
+        let rango = precio.split('-');
+        if (rango[0] !== '') {
+          filtro.precio.$gte = rango[0];
+        }
+        if (rango[1] !== '') {
+          filtro.precio.$lte = rango[1];
+        }
+      } else {
+        filtro.precio = precio;
+      }
+    
+  }
+
   const query = Anuncio.find(filtro);
   query.limit(limit);
   query.skip(skip);

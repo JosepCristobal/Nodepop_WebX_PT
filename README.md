@@ -33,7 +33,9 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Empezamos a crear el método PUT para dar de alta un nuevo anuncio. Pruebas realizadas sin validación.
 - Ahora toca programar toda la validación del anuncio para insertarlo con los parámetros correctos.
 - Para consumir apis de terceros, utilizaremos la libreria axios npm install axios.
-- La llamaremos desde nuestro index.js principal para servir datos a nuestra página html de presentación inicial
+- La llamaremos desde nuestro index.js principal para servir datos a nuestra página html de presentación inicial.
+- Empezamos a mostrar todos los tags dados de alta en nuestro modelo Anuncio.
+- Construimos la estructura para hacer consultas por diferentes criterios (contenido)
 
 
 
