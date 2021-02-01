@@ -35,7 +35,8 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Para consumir apis de terceros, utilizaremos la libreria axios npm install axios.
 - La llamaremos desde nuestro index.js principal para servir datos a nuestra página html de presentación inicial.
 - Empezamos a mostrar todos los tags dados de alta en nuestro modelo Anuncio.
-- Construimos la estructura para hacer consultas por diferentes criterios (contenido)
+- Construimos la estructura para hacer consultas por diferentes criterios (contenido).
+- Aplicamos filtros por rango de precios, venta o compra
 
 
 

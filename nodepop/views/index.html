@@ -14,8 +14,24 @@
       <p><%= tag %></p>
     <p><% });%></p>
     <br>
-    <p>Resutado de la búsqueda de anuncios segun los filtros aplicados en <%= title %></p>
-    <p><%= valorQuery.result %></p>
+    <p>Resutado de la búsqueda de anuncios según los filtros aplicados en <%= title %></p>
+    <p><%valorQuery.result.forEach(article => { %></p>
+      <p>Nombre del articulo: <%=article.nombre %></p>
+      <p>Precio del articulo: <%=article.precio %></p>
+      <p><%if(article.venta === true){ %></p>
+          <p>Articulo en venta</p>
+      <p><% }else{%></p>
+          <p>Articulo para comprar</p>
+      <p><% }%></p>
+
+      <p>Tags de clasificación:  <%= article.tags %></p>
+      
+      
+      <p><%= article.foto %></p>
+     
+    <p><% });%></p>
+    
+    
 
   </body>
 </html>
