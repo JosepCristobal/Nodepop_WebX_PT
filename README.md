@@ -29,7 +29,12 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Instalamos express-validator para ayudarnos a la validación de datos que hayamos recibido en nuestras peticiones al API. npm install express-validator.
 - Creamos un fichero header.html para incluirlo en nuestro index.html
 - Para arrancar la BBDD de MongoDB de forma manual, nos situamos en el directorio donde se encuentra nuestro motor de BBDD y ejecutamos el siguiente comando: ./bin/mongod --dbpath ./data/db
-- Creamos la definición y validación de los tags de anuncios. Hemos optado por un objeto tipo enum congelado y hacemos la validación devolviendo los tags erroneos
+- Creamos la definición y validación de los tags de anuncios. Hemos optado por un objeto tipo enum congelado y hacemos la validación devolviendo los tags erroneos.
+- Empezamos a crear el método PUT para dar de alta un nuevo anuncio. Pruebas realizadas sin validación.
+- Ahora toca programar toda la validación del anuncio para insertarlo con los parámetros correctos.
+- Para consumir apis de terceros, utilizaremos la libreria axios npm install axios.
+- La llamaremos desde nuestro index.js principal para servir datos a nuestra página html de presentación inicial
+
 
 
 

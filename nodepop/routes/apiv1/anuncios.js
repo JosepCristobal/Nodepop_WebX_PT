@@ -8,7 +8,13 @@ const Anuncio = require('../../models/Anuncio.js');
 
 /* GET /apiv1/anuncios  */
 router.get('/', async function(req, res, next) {
-    return res.status(200).json({result: 'OK'})
+    try {
+        const resultado = await Anuncio.lista(req.query)
+        return res.status(200).json({result: resultado})
+    } catch (error) {
+        next(error)
+    }
+    
 });
 
 

@@ -8,5 +8,14 @@
     <% include header.html %>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <br>
+    <p>El valor de los tags para clasificar los anuncios son:</p>
+    <p><%valorTags.forEach(tag => {  %></p>
+      <p><%= tag %></p>
+    <p><% });%></p>
+    <br>
+    <p>Resutado de la búsqueda de anuncios segun los filtros aplicados en <%= title %></p>
+    <p><%= valorQuery.result %></p>
+
   </body>
 </html>
