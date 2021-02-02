@@ -36,7 +36,9 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - La llamaremos desde nuestro index.js principal para servir datos a nuestra página html de presentación inicial.
 - Empezamos a mostrar todos los tags dados de alta en nuestro modelo Anuncio.
 - Construimos la estructura para hacer consultas por diferentes criterios (contenido).
-- Aplicamos filtros por rango de precios, venta o compra
+- Aplicamos filtros por rango de precios, venta o compra.
+- Mostrar los datos en la página index.html utilizando axios y la query string que nos pueden pasar en la url
+
 
 
 

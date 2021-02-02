@@ -34,7 +34,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //Midelware de ficheros estáticos
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
+
 
 /**
  * Rutas del API
