@@ -38,6 +38,7 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Construimos la estructura para hacer consultas por diferentes criterios (contenido).
 - Aplicamos filtros por rango de precios, venta o compra.
 - Mostrar los datos en la página index.html utilizando axios y la query string que nos pueden pasar en la url
+- Añadimos más datos como los criterios de búsqueda y la foto del articulo. Para la practica daremos por supuesto que la tenemos guardada en local.
 
 
 
