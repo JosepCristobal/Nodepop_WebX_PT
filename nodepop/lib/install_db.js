@@ -43,20 +43,20 @@ try {
   }
 }
 
-async function proceso(){
-    console.log('Antes de borrar')
+async function loadAnuncios(){
+    //console.log('Antes de borrar')
     await borraAnuncio();
-    console.log('Después de borrar')
-    console.log('Antes de parsear')
+    //console.log('Después de borrar')
+    //console.log('Antes de parsear')
     let data = JSON.parse(resultado(fichAnuncios));
-    console.log('Después de parsear')
+    //console.log('Después de parsear')
     await inserta(data.anuncios);
-    console.log('Después de insertar')
+    console.log('Fin de proceso')
     exit()
 }
 
-//Ejecutamos todas las funciones de borrado y carga 
+//Ejecutamos la funciones de borrado y carga 
 
-proceso();
+loadAnuncios();
 
 
