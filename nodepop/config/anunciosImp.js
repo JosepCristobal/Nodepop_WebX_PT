@@ -2,67 +2,63 @@
     {
         "nombre" : "Kawasaky",
         "venta" : true,
-        "precio" : 4500,
+        "precio" : 4500.56,
         "foto" : "kawa.jpg",
         "tags" : ["motor","lifestyle"]
     },
     {
         "nombre" : "iPhone 8",
         "venta" : false,
-        "precio" : 990,
+        "precio" : 990.76,
         "foto" : "iPhone8.jpg",
         "tags" : ["work", "lifestyle","mobile"]
     },
     {
         "nombre" : "iPhone X",
         "venta" : false,
-        "precio" : 1200,
+        "precio" : 1200.78,
         "foto" : "iPhoneX.jpg",
         "tags" : ["work","lifestyle","mobile"]
     },
     {
         "nombre" : "iPhone 5S",
         "venta" : false,
-        "precio" : 800,
+        "precio" : 800.70,
         "foto" : "iPhone5S.jpg",
         "tags" : ["work","lifestyle","mobile"]
     },
     {
         "nombre" : "Tesla mini",
         "venta" : false,
-        "precio" : 1200,
+        "precio" : 1200.97,
         "foto" : "TeslaM.jpg",
-        "tags" : ["lifestyle"]
+        "tags" : ["lifestyle","motor"]
     },
     {
-        "nombre": "zapatillas de deporte",
+        "nombre": "Zapatillas de deporte",
         "venta": true,
         "precio": 30.89,
-        "foto": "img39.jpg",
+        "foto": "zapdep.jpg",
         "tags": [
-          "motor",
-          "mobile",
-          "work"
+          "lifestyle"
         ]
       },
       {
         "nombre": "Televisión pantalla plana",
         "venta": true,
-        "precio": 30.9,
-        "foto": "img39.jpg",
+        "precio": 300.9,
+        "foto": "pantallaplana.jpg",
         "tags": [
-          "motor",
+          "lifestyle",
           "work"
         ]
       },
-      {
-        
+      {   
         "nombre": "DVD",
         "venta": true,
         "precio": 67.87,
-        "foto": "img39.jpg",
+        "foto": "dvd.jpg",
         "tags": [
-          "motor",
           "mobile",
           "work"
         ]
