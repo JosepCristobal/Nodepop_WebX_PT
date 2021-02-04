@@ -43,6 +43,7 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Carga de imágenes para los anuncios en images/anuncios.
 - Ahora ya hemos terminado con los requisitos de la práctica, empezamos con las validaciones de entrada.
 - Instalamos express-validator
+- Implementamos la validación de la entrada de nuevos anuncios, incluidos los tags permitidos
 
 
 
