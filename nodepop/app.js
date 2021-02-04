@@ -61,7 +61,9 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   // Es un error de validación?
   // Error en la parte de cliente.
+  //Utilizamos express-validator y para verificar que viene de este objeto, validamos que contenga un array que sabemos que es propio de este validador
   if(err.array){
+    //En nuestro proyecto no lo utilizamos. enviamos el array de errores desde anuncios.js
     const errorInfo = err.array({onlyFirstError: true})[0];
     err.message = `Not valid - ${errorInfo.param} ${errorInfo.msg}`
     err.status = 422;

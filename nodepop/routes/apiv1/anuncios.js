@@ -5,6 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 const Anuncio = require('../../models/Anuncio.js');
+const {body, validationResult} = require('express-validator');
 
 
 /* GET /apiv1/anuncios  */
@@ -46,8 +47,29 @@ try {
 
 });
 
-router.post('/', async (req, res, next) =>{
+router.post('/',
+    [
+        body('nombre').not().isEmpty().trim().escape().withMessage('El campo Nombre no puede estar vacío'),
+        body('precio').isNumeric().withMessage('El precio debe ser numérico'),
+        body('venta').isBoolean().withMessage('Valores admitidos: true o false'),
+        body('tags').custom(tags => {   
+            //Validamos si los tags que nos pasan están dentro de los permitidos
+            const errorTags = Anuncio.allowedTagsEnumValidate(tags)
+
+            //Si alguno de los tags no se encuentra, lanzaremos un error indicando que tags no son admitidos
+            if (errorTags.length > 0){
+                throw new Error(`Tags no admitidos: ${errorTags}`);
+            } else {
+                return true}
+        })
+    ], 
+ async (req, res, next) =>{
     try {
+        //validationResult(req).throw();
+        const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(422).json({ errors: errors.array()});
+    }
         const anuncioCreado = await Anuncio.newAnuncio(req.body)
         res.status(201).json({result: anuncioCreado});
     } catch (error) {

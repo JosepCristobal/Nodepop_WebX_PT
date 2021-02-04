@@ -1,4 +1,5 @@
 'use strict';
+//const { NotExtended } = require('http-errors');
 const mongoose = require('mongoose');
 //const fs = require('fs');
 
@@ -90,19 +91,29 @@ anuncioSchema.statics.newAnuncio = function(anuncioNew){
 
 
 
-
-
-// Validamos los tags asignados a nuevos anuncios
+// Validamos los tags asignados a nuevos anuncios o en una consulta al propio api
 let validateTags = (arrTag) => {
-  let result = [];
-  for (let name in arrTag){
-      // eslint-disable-next-line no-prototype-builtins
-      if (tags.hasOwnProperty(arrTag[name]) === false){
-        //Devolvemos los tags que no son reconocidos
-          result.push(arrTag[name])
-      }
+  try {
+    // Validamos que el valor que nos llega es un array, en el supuesto de recibir un string con un solo valor, este lo convertimos a array 
+    let tagsArr
+    if (!Array.isArray(arrTag)){
+        tagsArr = arrTag.split(',')
+    } else {
+        tagsArr = arrTag
+    }
+
+    let result = [] ;
+    for (let name in tagsArr){
+        // eslint-disable-next-line no-prototype-builtins
+        if (tags.hasOwnProperty(tagsArr[name]) === false){
+          //Devolvemos los tags que no son reconocidos
+            result.push(tagsArr[name])
+        }
+    }
+    return result
+  } catch (error) {
+    console.error(error)
   }
-  return result
 }
 
 // Creamos el modelo con el esquema definido
