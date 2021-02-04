@@ -1,6 +1,6 @@
 'use strict';
 const mongoose = require('mongoose');
-const fs = require('fs');
+//const fs = require('fs');
 
 /*
  * lista de tags permitidos
@@ -34,15 +34,16 @@ anuncioSchema.statics.lista = function(data){
   const venta = data.venta;
   const precio = data.precio;
   const tags = data.tags;
-  const limit = parseInt(data.limit);
-  const skip = parseInt(data.skip);
+  const limit = parseInt(data.limit) || 100;
+  const skip = parseInt(data.skip) || 0;
   const fields = data.fields;
   const sort = data.sort;
 
   const filtro = {}
   if (nombre){
-    //Usamos una expresion regular para la búsqueda del nombre por contenido como si fuera un like y insensible a las may-min
-    filtro.nombre = {$regex: nombre, $options: 'i'};
+    //Usamos una expresion regular para la búsqueda del nombre no por contenido si no que empiece con el nombre de búsqueda, como si fuera un like e insensible a las may-min
+    filtro.nombre = {$regex: '^'+nombre, $options: 'i'};
+    
   }
 
   //Buscamos por el contenido de los tags de clasificación de producto
@@ -81,6 +82,7 @@ anuncioSchema.statics.lista = function(data){
 }
 
 anuncioSchema.statics.newAnuncio = function(anuncioNew){
+  //Deberíamos verificar si los datos recibidos son los esperados
   const anuncio = new Anuncio(anuncioNew)
   const createAnuncio =  anuncio.save()
   return createAnuncio;
@@ -94,6 +96,7 @@ anuncioSchema.statics.newAnuncio = function(anuncioNew){
 let validateTags = (arrTag) => {
   let result = [];
   for (let name in arrTag){
+      // eslint-disable-next-line no-prototype-builtins
       if (tags.hasOwnProperty(arrTag[name]) === false){
         //Devolvemos los tags que no son reconocidos
           result.push(arrTag[name])

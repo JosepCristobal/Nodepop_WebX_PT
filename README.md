@@ -40,7 +40,9 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Mostrar los datos en la página index.html utilizando axios y la query string que nos pueden pasar en la url
 - Añadimos más datos como los criterios de búsqueda y la foto del articulo. Para la practica daremos por supuesto que la tenemos guardada en local.
 - Generamos proceso de carga de datos a través de un JSON que hemos preparado en un fichero.
-- Carga de imágenes para los anuncios en images/anuncios
+- Carga de imágenes para los anuncios en images/anuncios.
+- Ahora ya hemos terminado con los requisitos de la práctica, empezamos con las validaciones de entrada.
+- Instalamos express-validator
 
 
 

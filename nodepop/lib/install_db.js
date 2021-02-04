@@ -9,15 +9,13 @@ const path = require('path');
 const { exit } = require('process');
 const fichAnuncios = path.join('./config', 'anunciosImp.js');
 
-/**
- * Elimina todos los anuncios
- */
- async function borraAnuncio(){  
+//Eliminamos todos los anuncios
+async function borraAnuncio(){  
     try{
         await Anuncio.remove({});
         console.log('success borrar anuncios:', true);
         return;
-   }catch (err){
+    }catch (err){
         console.log('error en borrar anuncios:',err);
         return (err);
     } 
@@ -44,12 +42,12 @@ try {
 }
 
 async function loadAnuncios(){
-    //console.log('Antes de borrar')
+    //Hacemos la llamada para borrar todos los anuncios de la BBDD
     await borraAnuncio();
-    //console.log('Después de borrar')
-    //console.log('Antes de parsear')
+    //Creamos un objeto parseado para insertar en la BBDD con inserción masiva
+    //Leemos el ficheros y lo parseamos
     let data = JSON.parse(resultado(fichAnuncios));
-    //console.log('Después de parsear')
+    //Insertamos la información en nuestra BBDD
     await inserta(data.anuncios);
     console.log('Fin de proceso')
     exit()
