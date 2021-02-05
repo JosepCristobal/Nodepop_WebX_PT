@@ -6,12 +6,20 @@ var router = express.Router();
 
 const Anuncio = require('../../models/Anuncio.js');
 const {body, validationResult} = require('express-validator');
+const configAnuncios = require('../../local_config').anuncios;
 
 
 /* GET /apiv1/anuncios  */
 router.get('/', async function(req, res, next) {
     try {
         const resultado = await Anuncio.lista(req.query)
+        //Pondremos el prefijo de la url de las fotos, segun nuestra variable definida en local_config
+         // poner prefijo a imagenes
+        resultado.forEach((row) => {
+            if (row.foto) {
+            row.foto = configAnuncios.imagesURLBasePath + row.foto;
+            }
+        });
         return res.status(200).json({result: resultado})
     } catch (error) {
         next(error)

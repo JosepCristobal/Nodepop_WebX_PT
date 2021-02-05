@@ -43,7 +43,11 @@ Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 - Carga de imágenes para los anuncios en images/anuncios.
 - Ahora ya hemos terminado con los requisitos de la práctica, empezamos con las validaciones de entrada.
 - Instalamos express-validator
-- Implementamos la validación de la entrada de nuevos anuncios, incluidos los tags permitidos
+- Implementamos la validación de la entrada de nuevos anuncios, incluidos los tags permitidos.
+- Creamos la carpeta local_config para guardar definiciones de objetos que posteriormente utilizaremos.
+- Para guardar url base de las imágenes, utilizamos la propiedad "imagesURLBasePath" del objeto creado anteriormente.
+- En consulta de anuncios, una vez obtenemos el resultado, modificamos la propiedad .foto concatenando el valor imagesURLBasePath al nombre de imagen que tenemos.
+- Con la acción anterior, si cambiaramos de ubicación nuestro servidor, sólo tendríamos que modificar nuestra propiedad y no todo el contenido de .foto de toda la BBDD.
 
 
 

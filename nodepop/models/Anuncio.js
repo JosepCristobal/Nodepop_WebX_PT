@@ -1,7 +1,7 @@
 'use strict';
 //const { NotExtended } = require('http-errors');
 const mongoose = require('mongoose');
-//const fs = require('fs');
+
 
 /*
  * lista de tags permitidos

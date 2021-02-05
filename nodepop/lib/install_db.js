@@ -7,7 +7,7 @@ const Anuncio = require('../models/Anuncio');
 const fs = require('fs');
 const path = require('path'); 
 const { exit } = require('process');
-const fichAnuncios = path.join('./config', 'anunciosImp.js');
+const fichAnuncios = path.join('./config', 'anunciosImp.json');
 
 //Eliminamos todos los anuncios
 async function borraAnuncio(){  
