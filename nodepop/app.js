@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-//var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -18,14 +17,13 @@ require('./lib/connectMongoose');
 
 //El motor de plantillas es ejs
 //Vamos a hacer una modificacion y lo cambiamos a html
-//app.set('view engine', 'ejs');
 app.set('view engine', 'html');
 //Definimos que es un html, el no lo sabe si no se lo indicamos.
 app.engine('html', require('ejs').__express);
 
 //Declaramos variable global que será accesible por toda nuestras vistas
 //La utilizamos en nuestro index.js y index.html
-app.locals.title = 'NodePopAPI'
+app.locals.title = 'NodePopAPI';
 
 
 app.use(logger('dev'));
@@ -47,9 +45,8 @@ app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
  * 
  */
 
+app.use('/', indexRouter);
 
-app.use('/', indexRouter); //Variable indexRouter al inicio de este fichero  
-//app.use('/users', usersRouter); //Variable usersRouter al inicio de este fichero
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

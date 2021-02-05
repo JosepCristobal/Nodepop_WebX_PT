@@ -1,12 +1,11 @@
 'use strict';
-//const { NotExtended } = require('http-errors');
+
 const mongoose = require('mongoose');
 
 
-/*
- * lista de tags permitidos
- */
-//Simulamos un enum en javascrip utilizando un objeto congelado para que no pueda ser modificado
+//lista de tags permitidos
+
+//Simulamos un enum en javascrip utilizando un objeto freeze (congelado) para que no pueda ser modificado
 const tags = { "work":"work", "lifestyle":"lifestyle", "motor":"motor", "mobile":"mobile"};
 Object.freeze(tags);
 
@@ -30,6 +29,7 @@ anuncioSchema.statics.allowedTagsEnumValidate = function(arrTag){
 };
 
 // Definimos un método estático para consultar los anuncios según los criterios de búsqueda
+//Si en el limite de registros no recibimos valor, aplicaremos 100 registros como valor por defecto
 anuncioSchema.statics.lista = function(data){
   const nombre = data.nombre;
   const venta = data.venta;
@@ -40,11 +40,11 @@ anuncioSchema.statics.lista = function(data){
   const fields = data.fields;
   const sort = data.sort;
 
-  const filtro = {}
+  const filtro = {};
   if (nombre){
-    //Usamos una expresion regular para la búsqueda del nombre no por contenido si no que empiece con el nombre de búsqueda, como si fuera un like e insensible a las may-min
+    //Usamos una expresion regular para la búsqueda del nombre no por contenido si no que empiece con el nombre de búsqueda, 
+    //como si fuera un like e insensible a las may-min
     filtro.nombre = {$regex: '^'+nombre, $options: 'i'};
-    
   }
 
   //Buscamos por el contenido de los tags de clasificación de producto
@@ -54,7 +54,7 @@ anuncioSchema.statics.lista = function(data){
 
   //Filtramos si es venta = true o compra = false
   if (venta){
-    filtro.venta = venta
+    filtro.venta = venta;
   }
 
   //Vamos a tratar el filtro del precio para buscar el intervalo que nos marque el usuario que consulta
@@ -77,29 +77,27 @@ anuncioSchema.statics.lista = function(data){
   const query = Anuncio.find(filtro);
   query.limit(limit);
   query.skip(skip);
-  query.select(fields)
-  query.sort(sort)
+  query.select(fields);
+  query.sort(sort);
   return query.exec();
 }
 
+//Creamos un nuevo anuncio
 anuncioSchema.statics.newAnuncio = function(anuncioNew){
-  //Deberíamos verificar si los datos recibidos son los esperados
-  const anuncio = new Anuncio(anuncioNew)
-  const createAnuncio =  anuncio.save()
+  const anuncio = new Anuncio(anuncioNew);
+  const createAnuncio =  anuncio.save();
   return createAnuncio;
 }
-
-
 
 // Validamos los tags asignados a nuevos anuncios o en una consulta al propio api
 let validateTags = (arrTag) => {
   try {
     // Validamos que el valor que nos llega es un array, en el supuesto de recibir un string con un solo valor, este lo convertimos a array 
-    let tagsArr
+    let tagsArr;
     if (!Array.isArray(arrTag)){
         tagsArr = arrTag.split(',')
     } else {
-        tagsArr = arrTag
+        tagsArr = arrTag;
     }
 
     let result = [] ;
@@ -107,12 +105,12 @@ let validateTags = (arrTag) => {
         // eslint-disable-next-line no-prototype-builtins
         if (tags.hasOwnProperty(tagsArr[name]) === false){
           //Devolvemos los tags que no son reconocidos
-            result.push(tagsArr[name])
+            result.push(tagsArr[name]);
         }
     }
-    return result
+    return result;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 
