@@ -3,6 +3,7 @@
 
 ## Inicio de la práctica de Desarrollo backend NodeJs MongoDB
 
+- Creación de la carpeta de proyecto e inicialización de git
 - Creación del fichero .gitignore
 - Creamos proyecto con npx express-generator nodepop.
 - Ejecutamos npm install para cargar las dependencias.
@@ -33,12 +34,12 @@
 - Creamos la definición y validación de los tags de anuncios. Hemos optado por un objeto tipo enum congelado y hacemos la validación devolviendo los tags erroneos.
 - Empezamos a crear el método PUT para dar de alta un nuevo anuncio. Pruebas realizadas sin validación de tipos de dato.
 - Ahora toca programar toda la validación del anuncio para insertarlo con los parámetros correctos.
-- Para consumir apis de terceros, utilizaremos la libreria axios npm install axios.
+- Para consumir API de terceros, utilizaremos la libreria axios npm install axios.
 - La llamaremos desde nuestro index.js principal para servir datos a nuestra página html de presentación inicial.
 - Empezamos a mostrar todos los tags dados de alta en nuestro modelo Anuncio.
 - Construimos la estructura para hacer consultas por diferentes criterios (contenido).
 - Aplicamos filtros por rango de precios, venta o compra.
-- Mostrar los datos en la página index.html utilizando axios y la query string que nos pueden pasar en la url
+- Mostrar los datos en la página index.html utilizando axios y la query string que nos puedan pasar en la url
 - Añadimos más datos como los criterios de búsqueda y la foto del articulo. Para la practica daremos por supuesto que la tenemos guardada en local.
 - Generamos proceso de carga de datos a través de un JSON que hemos preparado en un fichero.
 - Carga de imágenes para los anuncios en images/anuncios.
@@ -53,8 +54,9 @@
 - Terminar de documentar todo el proyecto en README.md y en README_pasos.md.
 - Si nos da tiempo, mejoraríamos la visualización de nuestra página html.
 - Vamos a realizar un cambio de estrategia en la parte del index.js/index.html principal. Según una aclaración de Javier (Slack 07/02/2021 13:13).
-- En el apartado de visualización de una página (frontend) que muestre una lista de anuncios con filtros en su página principal, inicialmente habíamos optado por utilizar Axios y acceder a los datos de nuestros anuncios a través de invocar y consumir nuestra propia API. Con la aclaración de Javier, hemos renombrado los index a indexV0 y hemos creado un nuevo index.js y un nuevo index.html que extraen la información directamente sin pasar por nuestra API. Estos últimos son los que están activos en el proyecto y los renombrados aunque no se utilizan, pero los dejamos como ejemplo de una segunda opción que puede funcionar.
+- En el apartado de visualización de una página (frontend) que muestre una lista de anuncios con filtros en su página principal, inicialmente habíamos optado por utilizar Axios y acceder a los datos de nuestros anuncios a través de invocar y consumir nuestra propia API. Con la aclaración de Javier, hemos renombrado los index a indexV0 y hemos creado un nuevo index.js y un nuevo index.html que extraen la información directamente sin pasar por nuestra API. Estos últimos son los que están activos en el proyecto y los renombrados, aunque no se utilizan, pero los dejamos como ejemplo de una segunda opción que puede funcionar.
 - Continuamos con la documentación.
+- Documentación terminada.
 
 
 [Volver al README.md](https://github.com/JosepCristobal/Nodepop_WebX_PT#desarrollo-del-proyecto)
