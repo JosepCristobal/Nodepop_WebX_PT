@@ -5,8 +5,7 @@ Desarrollar una API que se ejecutará en el servidor de un servicio de venta de 
 
 El servicio mantiene anuncios de compra o venta de artículos y deberá permitir diferentes tipos de búsqueda, por cosiguiente la API a desarrollar deberá proveer los métodos necesarios para tal funcionalidad.
 
-## Desarrollo
-### Consideraciones generales
+## Consideraciones generales
 1. Cada anuncio deberá tener los siguientes datos:
 	* Nombre del artículo. Un anuncio siempre tendrá un solo artículo.
 	* Si el artículo se vende o se busca.
@@ -25,5 +24,9 @@ El servicio mantiene anuncios de compra o venta de artículos y deberá permitir
 
 3. Los sistemas donde se desplegará la API utilizarán MongoDB como base de datos.
 4. El site donde se despliegue deberá tener, ademá de la API, una página frontend que muestre una lista de anuncios con filtros en su página principal. Obtendrá información de la base de datos usando los modelos y la mostrará.
+
+## Desarrollo del proyecto
+
+[Paso a paso](https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/README_pasos.md)
 
 
