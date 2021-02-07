@@ -117,6 +117,7 @@ Para la puesta en marcha de nuestro proyecto/API, deberemos seguir los siguiente
 Una vez levantado nuestro servicio, podemos empezar a consumirlo.
 Tenemos dos partes diferenciadas, 
 
+### Consulta de anuncios
 * La primera sería una página html donde podremos acceder a la consulta de los anuncios y visualizar su resultado en un entorno web agradable.
 * La segunda parte sólo nos retornará información, según los filtros aplicados, en formato JSON y estará especialmente diseñada para responder a peticiones de entornos que consumen datos (IOS, Android, otras Webs, etc.). También nos permitirá la creación de nuevos anuncios.
 * Los filtros que podemos aplicar en ambas consultas son iguales por lo que pasamos a definirlos en primer lugar.
@@ -172,11 +173,50 @@ Tenemos dos partes diferenciadas,
 
 * Todas estas consulta se ha realizado con "GET" y los parametros se han pasado a través de la url.
 
-[Resutado de la consulta a la página html]()
+Resutado de la consulta a la página html:
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchHtml.png?raw=true" alt="Resultado página html con filtro" width="500"/>
+</p>
+
+Resultado de la consulta a nuesta API:
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchAPI_1.png?raw=true" alt="Resultado API con filtro" width="500"/>
+</p>
+
+Muestra de todos los datos que podemos retornar desde la API:
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchTotAPI.png?raw=true" alt="Resultado API sin filtro" width="500"/>
+</p>
 
 
-[Resultado de la consulta a nuesta API]()
+### Consulta de tags
+Podemos consultar todos los tags de clasificación disponibles para los anuncios. En este caso no hay parámetros, la consulta es directa como se ve en el ejemplo siguiente:
 
+	http://localhost:3000/apiv1/anuncios/tags
+	
+Resultado en formato JSON de los tags disponibles:
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/TagsDisponibles.png?raw=true" alt="Tags disponibles" width="500"/>
+</p>
+
+
+### Validación de tags
+Hemos desarrollado una validación de tags admitidos. Esta validación la utilizamos a nivel interno en nuevas altas de anuncios, pero tambien la podemos invocar desde el exterior, como una funcionalidad más.
+
+Utilizamos el método get, pero los parámetros se pasan por el body, por consiguiente la consulta sólo la podremos hacer con Postman u otro programa similar o bien por código.
+En nuestro caso utilizaremos Postman.
+
+El resultado que nos retornará será un status 200 y result: OK o bien en el supuesto de que hayamos pasado tags no permitidos, nos devolverá un status 404 y error: (con todos los tags no coincidentes).
+
+	http://localhost:3000/apiv1/anuncios/tagsValidate
+
+Resultado de los tags validados con Postman:
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/TagsValidate.png?raw=true" alt="Tags disponibles" width="500"/>
+</p>
+
+
+### Alta de nuevos anuncios
 
 
 
