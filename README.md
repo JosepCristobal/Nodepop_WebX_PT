@@ -196,7 +196,7 @@ Podemos consultar todos los tags de clasificación disponibles para los anuncios
 	
 Resultado en formato JSON de los tags disponibles:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/TagsDisponibles.png?raw=true" alt="Tags disponibles" width="500"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/TagsDisponibles.png?raw=true" alt="Tags disponibles" width="200"/>
 </p>
 
 
@@ -217,6 +217,27 @@ Resultado de los tags validados con Postman:
 
 
 ### Alta de nuevos anuncios
+El alta de nuevos anuncios lo realizamos con el método POST y los valores necesarios los pasamos a través de body, por consiguiente la petición de alta sólo la podremos hacer con Postman u otro programa similar o bien por código.
+En nuestro caso utilizaremos Postman.
+Los datos y su tipología para realizar el alta de nuevos anuncios son los siguientes:
+	* nombre : String y campo obligatorio.
+	* precio : numérico
+	* venta : true o false
+	* foto : String
+	* tags : String y solo se aceptan valores permitidos.
+Hay un sistema de validación en el API que en el supuesto de datos no permitidos, nos devolverá un status 422 y un Json con errors: {Todos los errores encontrados}, en el supuesto que sea todo OK, nos retornara un status 201 y un Json con result: {Datos del anuncio creado}
+
+Respuesta en el supuesto de datos erroneos en el alta de un nuevo anuncio:
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/Alta_Error.png?raw=true" alt="Tags disponibles" width="500"/>
+</p>
+
+Respuesta cuando el alta de un nuevo anuncio es OK:
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/AltaOK.png?raw=true" alt="Tags disponibles" width="500"/>
+</p>
+
+
 
 
 
