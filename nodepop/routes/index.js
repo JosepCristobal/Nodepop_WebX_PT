@@ -7,7 +7,16 @@ const Anuncio = require('../models/Anuncio.js');
 /* GET home page. */
 // eslint-disable-next-line no-unused-vars
 router.get('/', async function(req, res, next) {
-  const strDisp = Object.entries(req.query).map(([key, val]) => `${key}=${val}`).join(' and ');
+
+  let strDisp;
+  //Verificamos sin nos vienen filtros en nuestra query para adaptar el texto de nuestra página html
+  if (Object.keys(req.query).length === 0 && req.query.constructor === Object){
+    //Si no temenos ningún valor en la query, un texto de "No existen filtros"
+    strDisp = "No existen filtros para esta búsqueda";
+  }else{
+    strDisp = Object.entries(req.query).map(([key, val]) => `${key}=${val}`).join(' and ');
+  }
+
   try {
     const resultado = await Anuncio.lista(req.query)
     //Pondremos el prefijo de la url de las fotos, segun nuestra variable definida en local_config
@@ -32,7 +41,7 @@ router.get('/', async function(req, res, next) {
   } catch (error) {
       next(error);
   }
-  
+
 });
 
 

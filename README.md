@@ -43,6 +43,73 @@ Los componentes a destacar utilizados en nuestro proyecto son:
 * Nuestro proyecto ha sido desarrollado en un Macbook con MacOS Catalina v10.15.7
 
 ## Puesta en marcha de nuestro proyecto
+Para la puesta en marcha de nuestro proyecto/API, deberemos seguir los siguientes pasos:
+
+* Lo primero de todo es disponer de las herramientas necesarias en nuestro ordenador para poder abrir el proyecto y ejecutarlo.
+	* Disponer de un entorno de desarrollo. Recomendamos Visual Studio Code.
+	* Instalar Node.js. La version de Node utilizada en nuestro proyecto ha sido la v14.15.1
+	* Instalar MongoDB o tener acceso a él desde nuestro ordenador. Podriamos trabajar también  con un Mongo en el Cloud.
+
+* En segundo lugar clonaremos el proyecto original en una carpeta local de nuestro Mac, PC Windows o Linux. [Este es el enlace](https://github.com/JosepCristobal/Nodepop_WebX_PT.git)
+* Una vez lo tengamos en nuestra carpeta, abriremos una ventana de comandos y nos situaremos en la carpeta de nuestro proyecto (./nodepop).
+* Situados en el driectorio nodepop, ejecutaremos el comando "npm install"
+
+		jcm@MacBook-Pro-de-Josep nodepop % npm install
+		audited 419 packages in 2.057s
+
+		59 packages are looking for funding
+  		run `npm fund` for details
+
+		found 0 vulnerabilities
+* Con ello conseguiremos instalar todas las dependencias necesarias para que nuestro proyecto funcione.
+* Ahora deberíamos verificar que tenemos la BBDD MongoDB levantada y accesible desde nuestro ordenador. Si la tenemos en local, posiblemente la tengamos que levantar de forma manual.
+* Si fuera el caso, deberíamos abrir una ventana de comandos o terminal nuevo y situarnos en el directorio donde se encuentra nuestra BBDD. Si es la primera vez que accedemos a nuestra BBDDD, es recomendable crear una carpeta para almacenar nuestros datos. En nuestro caso hemos creado a partir de la carpeta principal de Mongo, una subcarpeta llamada data y dentro de ella otra llamada db, quedando el directorio estructurado así:
+
+		/mongodb-macos-x86_64-4.4.3/data/db
+		
+* A continuación, debemos arrancar nuestra BBDD y situados dentro de la carpeta principal de mongo, lo haremos con el siguiente comando:
+
+		./bin/mongod --dbpath ./data/db
+		
+* Una vez arrancado nuestro MongoDB, deberemos ir a nuestro proyecto y cambiar un par de valores de nuestras variables de configuración.
+
+	* Deberemos editar ./local_config.js
+	
+				module.exports = {
+	    			anuncios: {
+	      			imagesURLBasePath: 'http://192.168.10.114:3000/images/anuncios/',
+	      			baseUrlPath: 'http://192.168.10.114:3000/'
+	    			}
+  				};
+  				
+		* imagesURLBasePath: pertenece a la ruta donde vamos a almacenar las imágenes de nuestro anuncios. En este caso, solo cambiaríamos 'http://192.168.10.114:3000' para adaptarla a la ruta de nuestro local o servidor.
+		* baseUrlPath: Es la ruta base de nuestro servicio. Haríamos el cambio al igual que hemos hecho en el punto anterior.
+	* A continuación editaremos ./lib/connectMongoose.js que es donde tenemos la cadena de conexión a nuestra BBDD MongoDB. Si trabajamos en local, este paso no sería necesario.
+
+			mongoose.connect('mongodb://localhost/cursonode',{
+	    		useNewUrlParser: true,
+	    		useUnifiedTopology: true
+			});
+	* Nuestro servidor dará el servicio a través de puerto 3000, si queremos cambiarlo por algun motivo, lo deberemos hacer en ./bin/www. En nuestro caso no tenemos ninguna variable de entorno declarada referente al puerto, por lo tanto si queremos cambiarlo solo deberemos cambiar el 3000 por el que queramos.
+
+			var port = normalizePort(process.env.PORT || '3000');
+			
+* Con todos estos pasos, casi tenemos nuestro servicio a punto de arrancar. Para facilitar la puesta marcha inicial, hemos creado un script para inicializar y cargar nuestra BBDD unos anuncios de prueba. Para ejecutarlo deberemos estar en la ventana de comandos, en la raiz de nuestro proyecto nodepop y ejecutaremos el siguiente comando:
+
+		jcm@MacBook-Pro-de-Josep nodepop % node ./lib/install_db.js
+		
+	* Y si el resultado es el siguiente, es que todo ha salido bien y ya tenemos datos en nuestra base de datos.
+	
+			Conectado a MongoDB en cursonode
+			success borrar anuncios: true
+			Fin de proceso
+		
+* Para entornos de desarrollo y pruebas arrancaremos el servicio utilizando Nodemon ejecutando el siguiente comando.
+
+		jcm@MacBook-Pro-de-Josep nodepop % nodemon run env
+		
+*  Si todo ha salido como esperábamos, ya tenemos nuestro servicio levantado a punto de ser consumido.
+* 
 
 
 

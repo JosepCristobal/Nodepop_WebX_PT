@@ -1,3 +1,4 @@
+
 'use strict';
 
 // Cargamos el conector a la base de datos y la dejamos a punto de utilizar
@@ -12,7 +13,7 @@ const fichAnuncios = path.join('./config', 'anunciosImp.json');
 //Eliminamos todos los anuncios
 async function borraAnuncio(){  
     try{
-        await Anuncio.remove({});
+        await Anuncio.deleteMany({});
         console.log('success borrar anuncios:', true);
         return;
     }catch (err){

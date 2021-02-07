@@ -54,6 +54,7 @@
 - Si nos da tiempo, mejoraríamos la visualización de nuestra página html.
 - Vamos a realizar un cambio de estrategia en la parte del index.js/index.html principal. Según una aclaración de Javier (Slack 07/02/2021 13:13).
 - En el apartado de visualización de una página (frontend) que muestre una lista de anuncios con filtros en su página principal, inicialmente habíamos optado por utilizar Axios y acceder a los datos de nuestros anuncios a través de invocar y consumir nuestra propia API. Con la aclaración de Javier, hemos renombrado los index a indexV0 y hemos creado un nuevo index.js y un nuevo index.html que extraen la información directamente sin pasar por nuestra API. Estos últimos son los que están activos en el proyecto y los renombrados aunque no se utilizan, pero los dejamos como ejemplo de una segunda opción que puede funcionar.
+- Continuamos con la documentación.
 
 
 [Volver al README.md](https://github.com/JosepCristobal/Nodepop_WebX_PT#desarrollo-del-proyecto)
