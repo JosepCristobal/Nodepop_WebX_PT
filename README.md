@@ -220,11 +220,13 @@ Resultado de los tags validados con Postman:
 El alta de nuevos anuncios lo realizamos con el método POST y los valores necesarios los pasamos a través de body, por consiguiente la petición de alta sólo la podremos hacer con Postman u otro programa similar o bien por código.
 En nuestro caso utilizaremos Postman.
 Los datos y su tipología para realizar el alta de nuevos anuncios son los siguientes:
-	* nombre : String y campo obligatorio.
-	* precio : numérico
-	* venta : true o false
-	* foto : String
-	* tags : String y solo se aceptan valores permitidos.
+
+* nombre : String y campo obligatorio.
+* precio : numérico
+* venta : true o false
+* foto : String
+* tags : String y solo se aceptan valores permitidos.
+
 Hay un sistema de validación en el API que en el supuesto de datos no permitidos, nos devolverá un status 422 y un Json con errors: {Todos los errores encontrados}, en el supuesto que sea todo OK, nos retornara un status 201 y un Json con result: {Datos del anuncio creado}
 
 Respuesta en el supuesto de datos erroneos en el alta de un nuevo anuncio:
@@ -240,6 +242,15 @@ Respuesta cuando el alta de un nuevo anuncio es OK:
 
 
 
-
 ## Conclusiones finales
 
+Creo que con este trabajo he cubierto todos los requisitos que se pedían en el enunciado de la práctica y el esfuerzo que he dedicado no ha sido poco.
+
+Creo que la parte del backend es la parte más importate y la base para dar funcionalidad a cualquier aplicación web, dispositivo móvil o servicio a un client y por ello he querido asentar bien los conocimientos adquiridos en este módulo y he intentado darlo todo.
+La práctica la he empezado de cero y como le dije a Alberto Casero en el módulo de introducción a Javascript, donde más se aprende es cuando te enfrentas solo a la práctica e intentas aplicar todo lo aprendido en clase y lo compelmentas buscando información adicional para mejorar tu proyecto.
+
+Realmente ha sido una práctica muy interesante y me lo he pasado muy bien realizándola.
+
+Muchas gracias Javier por todo.
+
+Un placer, como siempre!
