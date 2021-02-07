@@ -109,13 +109,76 @@ Para la puesta en marcha de nuestro proyecto/API, deberemos seguir los siguiente
 		jcm@MacBook-Pro-de-Josep nodepop % nodemon run env
 		
 *  Si todo ha salido como esperábamos, ya tenemos nuestro servicio levantado a punto de ser consumido.
-* 
+
+
+
+## Funcionalidades y uso de nuestra API
+
+Una vez levantado nuestro servicio, podemos empezar a consumirlo.
+Tenemos dos partes diferenciadas, 
+
+* La primera sería una página html donde podremos acceder a la consulta de los anuncios y visualizar su resultado en un entorno web agradable.
+* La segunda parte sólo nos retornará información, según los filtros aplicados, en formato JSON y estará especialmente diseñada para responder a peticiones de entornos que consumen datos (IOS, Android, otras Webs, etc.). También nos permitirá la creación de nuevos anuncios.
+* Los filtros que podemos aplicar en ambas consultas son iguales por lo que pasamos a definirlos en primer lugar.
+* En nuestro proyecto los filtro en las consultas irán todas en la query.
+* La base para la consulta, en nuestro caso que trabajamos en local y por el puerto 3000, será la siguiente:
+	* Para la página html: 
+	
+			http://localhost:3000/?
+	* Para el servicio JSON: 
+	
+			http://localhost:3000/apiV1/anuncios/?
+	* Si queremos consultar todos los datos, obviaremos la barra y el intrrogante final.
+	* En el caso de combinar diferente filtros, estos los concateneremos poniendo & entre ellos.
+* Podremos filtrar por los siguiente conceptos:
+	* nombre : Nombre del producto a buscar. La búsqueda se hará por las palabras que empiecen por el valor buscado y no tendrá en cuenta si son mayúsculas o minúsculas.
+		* nombre=Zapatillas
+	* venta : Si es una venta será true y si es intención de compra, será false
+		* venta=true
+	* precio : es el precio de venta si venta = true y el precio que está dispuesto a pagar un comprador por un producto si venta es false.
+		* El precio lo podemos consultar por diferentes criterios.
+			* precio=50.8 	(Sería un precio exacto. Si hay decimales el separador será el .).
+			* precio=50-80	(Precio entre 50 y 80, ambos incluidos).
+			* precio=-50		(Precio menor o igual a 50).
+			* precio=50-		(Precio mayor o igual a 50)
+	* tags : Clasificación del anuncio según unos tags predefinidos. En nuestro caso los tags predefinidos son : work, lifestyle, motor y mobile.
+		* tags=work (Para un solo tag)
+		* tags=work&tags=motor ( Si son dos o más tags los concatenaremos con &).
+* Podemos añadir más filtos a nuestra consulta que afectan a la paginación, ordenación y campos a visualizar. Siempre los concatenados con &.
+	* limit : Nos retornará el máximo de registros indicados.
+		* limit=50
+	* skip : Nos devolverá a partir del registro indicado.
+		* skip = 50
+	* Con la combinación de "skip" y "limit" conseguiremos la paginación de registros.
+	* fields : Podemos definir que campos queremos y cuales no. En el caso del _id nos lo devuelve por defecto y si queremos obvialo, lo definiremos como -_id
+		* fields=nombre precio -_id  (Nos devolvera los registros con el valor nombre, precio i sin el _id)
+	* sort : Ordena los registros por el o los campos que le indiquemos. Con - ordenará descendentemente.
+		* sort=-precio (Nos ordenará por precio descendentemente).
+	* Todos los filtros vistos hasta ahora se pueden combinar todos o solo unos cuantos.
+	* Criterio para una consula de ejemplo: 
+		* Precio >= 50
+		* Registros máximos a obtener = 20
+		* tags buscados = lifestyle y motor
+		* Buscamos articulos en venta, venta = true
+		* Y queremos que nos devuelva nombre, precio, foto, tags y que excluya el _id
+		* El %20 es para rellenar los espacios en blanco
+	* Ejemplo de consulta en nuestra página html
+			
+			http://localhost:3000/?precio=50-&limit=20&tags=lifestyle&tags=motor&venta=true&fields=nombre%20precio%20foto%20tags%20-_id
+
+	* Este mismo ejemplo para la consulta a nuestra API:
+	
+			http://localhost:3000/apiv1/anuncios/?precio=50-&limit=20&tags=lifestyle&tags=motor&venta=true&fields=nombre%20precio%20foto%20tags%20-_id
+
+* Todas estas consulta se ha realizado con "GET" y los parametros se han pasado a través de la url.
+
+[Resutado de la consulta a la página html]()
+
+
+[Resultado de la consulta a nuesta API]()
 
 
 
 
-
-
-## Funcionalidades y uso 
-
+## Conclusiones finales
 
