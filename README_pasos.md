@@ -49,6 +49,11 @@
 - Para guardar url base de las imágenes, utilizamos la propiedad "imagesURLBasePath" del objeto creado anteriormente.
 - En consulta de anuncios, una vez obtenemos el resultado, modificamos la propiedad .foto concatenando el valor imagesURLBasePath al nombre de imagen que tenemos.
 - Con la acción anterior, si cambiaramos de ubicación nuestro servidor, sólo tendríamos que modificar nuestra propiedad y no todo el contenido de .foto de toda la BBDD.
+- Probar toda la funcionalidad de nuestra API.
+- Terminar de documentar todo el proyecto en README.md y en README_pasos.md.
+- Si nos da tiempo, mejoraríamos la visualización de nuestra página html.
+- Vamos a realizar un cambio de estrategia en la parte del index.js/index.html principal. Según una aclaración de Javier (Slack 07/02/2021 13:13).
+- En el apartado de visualización de una página (frontend) que muestre una lista de anuncios con filtros en su página principal, inicialmente habíamos optado por utilizar Axios y acceder a los datos de nuestros anuncios a través de invocar y consumir nuestra propia API. Con la aclaración de Javier, hemos renombrado los index a indexV0 y hemos creado un nuevo index.js y un nuevo index.html que extraen la información directamente sin pasar por nuestra API. Estos últimos son los que están activos en el proyecto y los renombrados aunque no se utilizan, pero los dejamos como ejemplo de una segunda opción que puede funcionar.
 
 
 [Volver al README.md](https://github.com/JosepCristobal/Nodepop_WebX_PT#desarrollo-del-proyecto)
